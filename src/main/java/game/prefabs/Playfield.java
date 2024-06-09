@@ -4,14 +4,22 @@ import game.abstractions.GameObject;
 import util.Dimension;
 import util.Vector2D;
 
+import java.util.*;
+
 import org.lwjgl.opengl.GL11;
 
 public class Playfield extends GameObject {
     private Dimension dim = new Dimension(0.6f, 0.85f);
     private Vector2D pos = new Vector2D(-0.3f, -0.1f);
+    private List<Vector2D> corners = new ArrayList<>();
 
 
-    public Playfield() {}
+    public Playfield() {
+        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
+    }
     
     @Override
     public void Draw() {

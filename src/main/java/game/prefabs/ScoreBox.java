@@ -4,14 +4,22 @@ import game.abstractions.GameObject;
 import util.Dimension;
 import util.Vector2D;
 
+import java.util.*;
+
 import org.lwjgl.opengl.GL11;
 
 public class ScoreBox extends GameObject {
     private Dimension dim = new Dimension(0.25f, 0.15f);
     private Vector2D pos = new Vector2D(0.65f, -0.6f);
+    private List<Vector2D> corners = new ArrayList<>();
 
 
-    public ScoreBox() {}
+    public ScoreBox() {
+        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
+        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
+    }
     
     @Override
     public void Draw() {
