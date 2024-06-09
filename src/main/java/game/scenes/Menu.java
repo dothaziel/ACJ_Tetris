@@ -1,8 +1,8 @@
 package game.scenes;
 
 import game.MouseListener;
-import game.Scene;
 import game.Window;
+import game.abstractions.Scene;
 import game.prefabs.Square;
 
 

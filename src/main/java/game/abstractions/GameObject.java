@@ -3,27 +3,27 @@ package game.abstractions;
 import game.Vector2D;
 
 public abstract class GameObject {
-    private Vector2D Position;
-    private float Scale;
+    private Vector2D position;
+    private float scale;
 
     public GameObject() {
-        this.Position = new Vector2D(0.0f, 0.0f);
-        this.Scale = 1.0f;
+        this.position = new Vector2D(0.0f, 0.0f);
+        this.scale = 1.0f;
     }
 
     public void setPosition(float x, float y) {
-        this.Position.x = x;
-        this.Position.y = y;
+        this.position.setX(x);
+        this.position.setY(y);
     }
 
     public void setScale(float scale) {
-        this.Scale = scale;
+        this.scale = scale;
     }
 
     public Vector2D getPosition() {
-        return this.Position;
+        return this.position;
     }
     public float getScale() {
-        return this.Scale;
+        return this.scale;
     }
 }

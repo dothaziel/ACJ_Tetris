@@ -14,13 +14,13 @@ public class Square extends GameObject {
         
     }
     public void Draw() {
-        Vector2D position = this.getPosition();
+        Vector2D pos = this.getPosition();
         glBegin(GL_QUADS);
         glColor4f(1.0f, 0, 0, 0);
-        glVertex2f(position.x, position.y);//top left
-        glVertex2f(position.x + this.getScale(), position.y);//top right
-        glVertex2f(position.x + this.getScale(), position.y - this.getScale());//bottom right
-        glVertex2f(position.x, position.y - this.getScale());//bottom left
+        glVertex2f(pos.getX(), pos.getY());//top left
+        glVertex2f(pos.getX() + this.getScale(), pos.getY());//top right
+        glVertex2f(pos.getX() + this.getScale(), pos.getY() - this.getScale());//bottom right
+        glVertex2f(pos.getX(), pos.getY() - this.getScale());//bottom left
         glEnd();
     }
     public void Physics(float deltaTime) {

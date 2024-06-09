@@ -1,7 +1,5 @@
 package game;
 
-import java.awt.Dimension;
-import java.rmi.dgc.VMID;
 import java.awt.Toolkit;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -19,7 +17,6 @@ import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
-import static org.lwjgl.glfw.GLFW.glfwSetWindowPos;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
@@ -33,7 +30,7 @@ import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 import game.scenes.Menu;
-import game.scenes.Game;
+import game.abstractions.Scene;
 import util.Time;
 
 public class Window {

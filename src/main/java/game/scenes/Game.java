@@ -1,6 +1,6 @@
 package game.scenes;
 
-import game.Scene;
+import game.abstractions.Scene;
 
 public class Game extends Scene {
 

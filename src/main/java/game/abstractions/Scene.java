@@ -1,4 +1,4 @@
-package game;
+package game.abstractions;
 
 public abstract class Scene {
     public float gravity;
