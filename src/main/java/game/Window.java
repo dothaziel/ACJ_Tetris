@@ -11,7 +11,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
-    private int width, height;
+    public final int WINDOW_WIDTH = 550,WINDOW_HEIGHT = 700;
     private String title;
     // Window pointer.
     private long glfwWindow;
@@ -25,8 +25,6 @@ public class Window {
     public static Scene currentScene = null;
 
     private Window() {
-        this.width  = 1920;
-        this.height = 1080;
         this.title = "Tetris by ACJ";
 
         // We define the initial window background
@@ -81,10 +79,10 @@ public class Window {
 
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // Display the window
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // Make the window resizable
-        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE); // The window start maximized
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Make the window resizable
+        glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE); // The window start maximized
 
-        glfwWindow = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL); // Create the window
+        glfwWindow = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, this.title, NULL, NULL); // Create the window
         if(glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create GLFW window."); // Erro handling
         }
