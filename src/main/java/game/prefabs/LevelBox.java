@@ -2,7 +2,7 @@ package game.prefabs;
 
 import game.abstractions.GameObject;
 import util.Dimension;
-import util.SceneMath;
+import util.SceneHelper;
 import util.Vector2D;
 
 import java.util.*;
@@ -15,7 +15,7 @@ public class LevelBox extends GameObject {
     private List<Vector2D> corners = new ArrayList<>();
 
     public LevelBox() {
-        corners = SceneMath.getCorners(dim, pos);
+        corners = SceneHelper.getCorners(dim, pos);
     }
     
     @Override
@@ -32,6 +32,8 @@ public class LevelBox extends GameObject {
         GL11.glEnd();
 
         GL11.glPopMatrix();
+
+        SceneHelper.drawOutline(corners);
     }
     public void Physics(float deltaTime) {
         

@@ -2,7 +2,7 @@ package game.prefabs;
 
 import game.abstractions.GameObject;
 import util.Dimension;
-import util.SceneMath;
+import util.SceneHelper;
 import util.Vector2D;
 
 import java.util.*;
@@ -16,7 +16,7 @@ public class HoldBox extends GameObject {
 
 
     public HoldBox() {
-        corners = SceneMath.getCorners(dim, pos);
+        corners = SceneHelper.getCorners(dim, pos);
     }
     
     @Override
@@ -33,6 +33,8 @@ public class HoldBox extends GameObject {
         GL11.glEnd();
 
         GL11.glPopMatrix();
+
+        SceneHelper.drawOutline(corners);
     }
     public void Physics(float deltaTime) {
         
