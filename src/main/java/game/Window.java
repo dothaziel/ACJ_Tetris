@@ -115,7 +115,7 @@ public class Window {
         if(glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create GLFW window."); // Erro handling
         }
-        glfwSetWindowPos(glfwWindow, (screen_width - this.width) / 2, (screen_height - this.height) / 2);
+        
         glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
