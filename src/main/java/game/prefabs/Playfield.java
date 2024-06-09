@@ -10,7 +10,7 @@ import java.util.*;
 import org.lwjgl.opengl.GL11;
 
 public class Playfield extends GameObject {
-    private Dimension dim = new Dimension((0.85f * 0.5f), 0.85f);
+    private Dimension dim = new Dimension((0.85f * 0.65f), 0.85f);
     private Vector2D pos = new Vector2D(-0.3f, -0.1f);
     private List<Vector2D> corners = new ArrayList<>();
 
