@@ -36,19 +36,43 @@ public class Playfield extends GameObject {
 
         GL11.glPopMatrix();
 
+        GL11.glBegin(GL11.GL_LINES);
+        GL11.glColor3f(0.0f, 0.0f, 0.5f);
+        GL11.glVertex2f(corners.get(0).getX(), corners.get(0).getY());
+        GL11.glVertex2f(corners.get(1).getX(), corners.get(0).getY());
+        GL11.glEnd();
+
+        GL11.glBegin(GL11.GL_LINES);
+        GL11.glColor3f(0.0f, 0.0f, 0.5f);
+        GL11.glVertex2f(corners.get(1).getX(), corners.get(1).getY());
+        GL11.glVertex2f(corners.get(1).getX(), corners.get(2).getY());
+        GL11.glEnd();
+
+        GL11.glBegin(GL11.GL_LINES);
+        GL11.glColor3f(0.0f, 0.0f, 0.5f);
+        GL11.glVertex2f(corners.get(2).getX(), corners.get(2).getY());
+        GL11.glVertex2f(corners.get(3).getX(), corners.get(2).getY());
+        GL11.glEnd();
+
+        GL11.glBegin(GL11.GL_LINES);
+        GL11.glColor3f(0.0f, 0.0f, 0.5f);
+        GL11.glVertex2f(corners.get(3).getX(), corners.get(3).getY());
+        GL11.glVertex2f(corners.get(3).getX(), corners.get(0).getY());
+        GL11.glEnd();
+
         for (int i = 1; i < 10; i++) {
             GL11.glBegin(GL11.GL_LINES);
             GL11.glColor3f(0.0f, 0.0f, 0.5f);
-            GL11.glVertex2f(corners.get(0).getX() + (i * (dim.getWidth()*0.1f)), corners.get(0).getY());
-            GL11.glVertex2f(corners.get(0).getX() + (i * (dim.getWidth()*0.1f)), corners.get(3).getY());
+            GL11.glVertex2f(corners.get(0).getX() + (i * (dim.getWidth()*0.2f)), corners.get(0).getY());
+            GL11.glVertex2f(corners.get(0).getX() + (i * (dim.getWidth()*0.2f)), corners.get(3).getY());
             GL11.glEnd();
         }
 
         for (int i = 1; i < 20; i++) {
             GL11.glBegin(GL11.GL_LINES);
             GL11.glColor3f(0.0f, 0.0f, 0.5f);
-            GL11.glVertex2f(corners.get(0).getX(), corners.get(0).getY() + (i * (dim.getHeight()*0.05f)));
-            GL11.glVertex2f(corners.get(1).getX(), corners.get(0).getY() + (i * (dim.getHeight()*0.05f)));
+            GL11.glVertex2f(corners.get(0).getX(), corners.get(3).getY() + (i * (dim.getHeight()*0.1f)));
+            GL11.glVertex2f(corners.get(1).getX(), corners.get(3).getY() + (i * (dim.getHeight()*0.1f)));
             GL11.glEnd();
         }
     }
