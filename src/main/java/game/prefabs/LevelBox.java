@@ -2,6 +2,7 @@ package game.prefabs;
 
 import game.abstractions.GameObject;
 import util.Dimension;
+import util.SceneMath;
 import util.Vector2D;
 
 import java.util.*;
@@ -14,10 +15,7 @@ public class LevelBox extends GameObject {
     private List<Vector2D> corners = new ArrayList<>();
 
     public LevelBox() {
-        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
-        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() + (dim.getHeight() / 2)));
-        corners.add(new Vector2D(pos.getX() + (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
-        corners.add(new Vector2D(pos.getX() - (dim.getWidth() / 2), pos.getY() - (dim.getHeight() / 2)));
+        corners = SceneMath.getCorners(dim, pos);
     }
     
     @Override
