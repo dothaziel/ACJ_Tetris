@@ -1,4 +1,4 @@
-package game;
+package util;
 
 public class Vector2D {
     private float x;

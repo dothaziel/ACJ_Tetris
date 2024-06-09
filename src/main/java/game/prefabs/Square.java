@@ -1,12 +1,11 @@
 package game.prefabs;
 
 import game.abstractions.GameObject;
+import util.Vector2D;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.opengl.GL;
-
-import game.Vector2D;
 
 public class Square extends GameObject {
 
