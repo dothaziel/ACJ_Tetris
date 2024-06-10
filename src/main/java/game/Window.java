@@ -17,9 +17,11 @@ import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetWindowPos;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
+import static org.lwjgl.glfw.GLFW.glfwTerminate;
 import static org.lwjgl.glfw.GLFW.glfwWindowHint;
 import static org.lwjgl.glfw.GLFW.glfwWindowShouldClose;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -43,6 +45,7 @@ public class Window {
     //methods to get the screen width and height
     public int screen_width = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public int screen_height = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+
     public final int WINDOW_HEIGHT = (int)Math.floor(screen_height * 0.8);
     public final int WINDOW_WIDTH = (int)Math.floor(WINDOW_HEIGHT * 0.785);
     public float r,g,b,a;
@@ -97,8 +100,7 @@ public class Window {
         // Main game loop function call
         loop();
 
-        glfwFreeCallbacks(glfwWindow);
-        glfwDestroyWindow(glfwWindow);
+        glfwTerminate();
     }
     public void init() {
         GLFWErrorCallback.createPrint(System.err).set();
@@ -116,6 +118,8 @@ public class Window {
             throw new IllegalStateException("Failed to create GLFW window."); // Erro handling
         }
         
+        glfwSetWindowPos(glfwWindow, (screen_width - WINDOW_WIDTH) / 2, (screen_height - WINDOW_HEIGHT) / 2);
+
         glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
