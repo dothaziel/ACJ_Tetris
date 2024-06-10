@@ -1,4 +1,4 @@
-package game;
+package game.listeners;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;

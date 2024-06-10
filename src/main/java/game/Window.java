@@ -1,7 +1,5 @@
 package game;
 
-import java.awt.Dimension;
-import java.rmi.dgc.VMID;
 import java.awt.Toolkit;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -19,7 +17,6 @@ import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
-import static org.lwjgl.glfw.GLFW.glfwSetWindowPos;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
@@ -32,8 +29,11 @@ import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-import game.scenes.Menu;
 import game.scenes.Game;
+import game.scenes.Menu;
+import game.abstractions.Scene;
+import game.listeners.KeyListener;
+import game.listeners.MouseListener;
 import util.Time;
 
 public class Window {
@@ -70,7 +70,7 @@ public class Window {
     public static void changeScene(int newScene) {
         switch(newScene) {
             case 0:
-                currentScene = new Menu();
+                currentScene = new Game();
                 //currentScene.init();
                 break;
             default:
@@ -115,7 +115,7 @@ public class Window {
         if(glfwWindow == NULL) {
             throw new IllegalStateException("Failed to create GLFW window."); // Erro handling
         }
-        glfwSetWindowPos(glfwWindow, (screen_width - this.width) / 2, (screen_height - this.height) / 2);
+        
         glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
