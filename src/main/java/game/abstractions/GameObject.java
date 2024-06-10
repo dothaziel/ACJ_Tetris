@@ -1,6 +1,6 @@
 package game.abstractions;
 
-import game.Vector2D;
+import util.Vector2D;
 
 public abstract class GameObject {
     private Vector2D position;
@@ -10,6 +10,8 @@ public abstract class GameObject {
         this.position = new Vector2D(0.0f, 0.0f);
         this.scale = 1.0f;
     }
+
+    public void Draw() {}
 
     public void setPosition(float x, float y) {
         this.position.setX(x);
