@@ -66,10 +66,10 @@ public class MouseListener {
     }
 
     public static float getX() {
-        return (float)get().xPos;
+        return (float)(2*(get().xPos-(Window.get().WINDOW_WIDTH/2)))/Window.get().WINDOW_WIDTH;
     }
     public static float getY() {
-        return (float)get().yPos;
+        return (float)(-2*(get().yPos-(Window.get().WINDOW_HEIGHT/2)))/Window.get().WINDOW_HEIGHT;
     }
     public static float getDx() {
         return (float)(get().lastX - get().xPos);

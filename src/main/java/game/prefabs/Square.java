@@ -13,6 +13,7 @@ public class Square extends GameObject {
     public Square() {
         
     }
+    @Override
     public void Draw() {
         Vector2D pos = this.getPosition();
         glBegin(GL_QUADS);

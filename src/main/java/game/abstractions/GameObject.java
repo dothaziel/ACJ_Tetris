@@ -26,4 +26,5 @@ public abstract class GameObject {
     public float getScale() {
         return this.scale;
     }
+    public abstract void Draw();
 }

@@ -1,7 +1,13 @@
 package game.scenes;
 
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
+
+import java.util.ArrayList;
+
+import game.KeyListener;
 import game.MouseListener;
 import game.Window;
+import game.abstractions.GameObject;
 import game.abstractions.Scene;
 import game.prefabs.Square;
 
@@ -10,19 +16,26 @@ import game.prefabs.Square;
 public class Menu extends Scene {
     
     private Square square;
+    private ArrayList<GameObject> sceneObjects;
 
     public Menu() {
-        square = new Square();
-        square.setScale(0.1f);
-        square.setPosition(-0.05f, 0.0f);
+        sceneObjects = new ArrayList<>();
+        
     }
 
     
     @Override
     public void update(float deltaTime) {
-        float x = (2*(MouseListener.getX()-(Window.get().WINDOW_WIDTH/2)))/Window.get().WINDOW_WIDTH;
-        float y = -(2*(MouseListener.getY()-(Window.get().WINDOW_HEIGHT/2)))/Window.get().WINDOW_HEIGHT;
-        square.setPosition(x, y);
-        square.Draw();
+        if(KeyListener.isKeyPressed(GLFW_KEY_E)) {
+            square = new Square();
+            square.setPosition(MouseListener.getX(), MouseListener.getY());
+            square.setScale(0.1f);
+            square.Draw();
+            sceneObjects.add(square);
+        }
+
+        for(GameObject object : sceneObjects) {
+            object.Draw();
+        }
     }
 }
