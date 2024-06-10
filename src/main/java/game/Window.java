@@ -37,14 +37,14 @@ import game.listeners.MouseListener;
 import util.Time;
 
 public class Window {
-
-    public final int WINDOW_WIDTH = 550,WINDOW_HEIGHT = 700;
     private String title;
     // Window pointer.
     private long glfwWindow;
     //methods to get the screen width and height
     public int screen_width = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public int screen_height = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+    public final int WINDOW_HEIGHT = (int)Math.floor(screen_height * 0.8);
+    public final int WINDOW_WIDTH = (int)Math.floor(WINDOW_HEIGHT * 0.785);
     public float r,g,b,a;
 
     // Window class instance
