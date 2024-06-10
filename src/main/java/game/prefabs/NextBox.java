@@ -23,7 +23,8 @@ public class NextBox extends GameObject {
     public void Draw() {
         GL11.glPushMatrix();
         GL11.glTranslatef(pos.getX(), pos.getY(), 0);
-
+        GL11.glRotatef(0, 0, 0, 1);
+        
         GL11.glColor3f(0.8f, 0.8f, 0.8f);
         GL11.glBegin(GL11.GL_QUADS);
         GL11.glVertex2f(-dim.getWidth(), -dim.getHeight());
