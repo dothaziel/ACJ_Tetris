@@ -11,8 +11,6 @@ public abstract class GameObject {
         this.scale = 1.0f;
     }
 
-    public void Draw() {}
-
     public void setPosition(float x, float y) {
         this.position.setX(x);
         this.position.setY(y);
@@ -28,5 +26,5 @@ public abstract class GameObject {
     public float getScale() {
         return this.scale;
     }
-    public abstract void Draw();
+    public abstract void run();
 }

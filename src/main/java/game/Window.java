@@ -34,6 +34,7 @@ import game.scenes.Menu;
 import game.abstractions.Scene;
 import game.listeners.KeyListener;
 import game.listeners.MouseListener;
+import game.managers.SceneManager;
 import util.Time;
 
 public class Window {
@@ -51,7 +52,6 @@ public class Window {
     public static Window window = null;
 
     // The current rendered scene
-    public static Scene currentScene = null;
 
     private Window() {
         this.title = "Tetris by ACJ";
@@ -61,22 +61,6 @@ public class Window {
         this.g = 1.0f;
         this.b = 1.0f;
         this.a = 1.0f;
-    }
-
-    /**
-     * Switch scenes
-     * @param newScene scene Id
-     */
-    public static void changeScene(int newScene) {
-        switch(newScene) {
-            case 0:
-                currentScene = new Game();
-                //currentScene.init();
-                break;
-            default:
-                assert false : "Unknown Scene '" + newScene + "'";
-                break;
-        }
     }
 
     // Create a Window if no one exists
@@ -108,7 +92,7 @@ public class Window {
 
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-        glfwWindowHint(GLFW_RESIZABLE, 0);
+        glfwWindowHint(GLFW_RESIZABLE, 1);
         glfwWindowHint(GLFW_MAXIMIZED, 0);
 
         glfwWindow = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, this.title, NULL, NULL); // Create the window
@@ -126,7 +110,6 @@ public class Window {
 
         glfwShowWindow(glfwWindow); // Display the final window
         GL.createCapabilities(); // Enable open gl api
-        Window.changeScene(0); // Init on first scene.
     }
 
     // Game loop
@@ -142,7 +125,7 @@ public class Window {
             glClear(GL_COLOR_BUFFER_BIT);
 
             if(dt >= 0) {
-                currentScene.update(dt); // Call the scene update function (function that repeats on every frame.)
+                SceneManager.runScene(dt); // Call the scene update function (function that repeats on every frame.)
             }
 
             glfwSwapBuffers(glfwWindow);

@@ -2,6 +2,8 @@ package game.listeners;
 
 import static org.lwjgl.glfw.GLFW.*;
 
+import game.Window;
+
 public class MouseListener {
     private static MouseListener instance;
     private double scrollX, scrollY;

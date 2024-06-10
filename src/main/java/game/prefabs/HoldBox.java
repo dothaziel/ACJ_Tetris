@@ -20,7 +20,7 @@ public class HoldBox extends GameObject {
     }
     
     @Override
-    public void Draw() {
+    public void run() {
         GL11.glPushMatrix();
         GL11.glTranslatef(pos.getX(), pos.getY(), 0.0f);
 

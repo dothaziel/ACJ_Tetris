@@ -13,7 +13,7 @@ public class Square extends GameObject {
         
     }
     @Override
-    public void Draw() {
+    public void run() {
         Vector2D pos = this.getPosition();
         glBegin(GL_QUADS);
         glColor4f(1.0f, 0, 0, 0);

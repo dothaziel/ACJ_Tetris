@@ -21,9 +21,13 @@ public class Playfield extends GameObject {
     public Playfield() {
         corners = SceneHelper.getCorners(dim, pos);
     }
+
+    public List<Vector2D> getCorners() {
+        return corners;
+    }
     
     @Override
-    public void Draw() {
+    public void run() {
         GL11.glPushMatrix();
         GL11.glTranslatef(pos.getX(), pos.getY(), 0);
 

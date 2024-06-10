@@ -7,6 +7,7 @@ import game.prefabs.LevelBox;
 import game.prefabs.NextBox;
 import game.prefabs.Playfield;
 import game.prefabs.ScoreBox;
+import util.Vector2D;
 
 import java.util.*;
 
@@ -18,13 +19,29 @@ public class Game extends Scene {
         objects.add(new LevelBox());
         objects.add(new HoldBox());
         objects.add(new NextBox());
-        objects.add(new ScoreBox());
+        objects.add(new ScoreBox()); 
+
+        Playfield pf = Game.getPlayFieldFromSet(objects);
+        List<Vector2D> corners = pf.getCorners();
+        
+    }
+
+    private static Playfield getPlayFieldFromSet(Set<GameObject> set) {
+        for (GameObject obj : set) {
+            if (obj instanceof Playfield) {
+                return (Playfield) obj;
+            }
+        }
+        return null; // Retornar null si no se encontró un objeto de tipo PlayField
     }
 
     @Override
     public void update(float deltaTime) {
         for(GameObject obj : objects) {
-            obj.Draw();
+            obj.run();
+            if(obj instanceof Playfield) {
+
+            }
         }
     }
 }
